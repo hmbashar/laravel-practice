@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 
 
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -21,3 +22,8 @@ Route::post('/', [HomeController::class, 'submit']);
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
+
+
+
+Route::get('/article', [DemoController::class, 'article']);
+Route::get('/articles', [DemoController::class, 'articles']);

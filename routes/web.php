@@ -27,3 +27,4 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 
 Route::get('/article', [DemoController::class, 'article']);
 Route::get('/articles', [DemoController::class, 'articles']);
+Route::get('/demo', [DemoController::class, 'demo']);

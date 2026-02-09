@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Http\Request;
 
 
 
@@ -33,3 +34,15 @@ Route::get('/demo2', [DemoController::class, 'index']);
 
 Route::get('/profile-entry', [DemoController::class, 'profileEntry']);
 Route::get('/update', [DemoController::class, 'updateProfile']);
+
+Route::post('/test-submit', function(Request $request) {
+   $request->validate([
+        'name' => 'required|min:5',
+        'email' => 'required|email|max:200',        
+    ]);
+
+    return response()->json([
+        'messages' => 'Contact form submitted successfully',
+         'data' => $request->only('name', 'email')
+    ]);
+});

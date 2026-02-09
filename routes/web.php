@@ -28,3 +28,8 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 Route::get('/article', [DemoController::class, 'article']);
 Route::get('/articles', [DemoController::class, 'articles']);
 Route::get('/demo', [DemoController::class, 'demo']);
+
+Route::get('/demo2', [DemoController::class, 'index']);
+
+Route::get('/profile-entry', [DemoController::class, 'profileEntry']);
+Route::get('/update', [DemoController::class, 'updateProfile']);

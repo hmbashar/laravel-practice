@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc1e7b4ee0b38f3a6bc20b59f7f04c5e",
+    "content-hash": "ac2c27cb58227ad022e8f5b3dc7e1a18",
     "packages": [
         {
             "name": "brick/math",
@@ -1051,6 +1051,60 @@
                 }
             ],
             "time": "2025-08-22T14:27:06+00:00"
+        },
+        {
+            "name": "hasinhayder/tyro-checkpoint",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hasinhayder/tyro-checkpoint.git",
+                "reference": "534727eb8b89bc0f30369f3aa984dbc5dfb7260b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hasinhayder/tyro-checkpoint/zipball/534727eb8b89bc0f30369f3aa984dbc5dfb7260b",
+                "reference": "534727eb8b89bc0f30369f3aa984dbc5dfb7260b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^10.0|^11.0|^12.0",
+                "illuminate/database": "^10.0|^11.0|^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^8.0|^9.0",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HasinHayder\\TyroCheckpoint\\TyroCheckpointServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HasinHayder\\TyroCheckpoint\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hasin Hayder",
+                    "email": "hasin@hasinhayder.com"
+                }
+            ],
+            "description": "Database checkpoint management for Laravel local development (SQLite only)",
+            "support": {
+                "issues": "https://github.com/hasinhayder/tyro-checkpoint/issues",
+                "source": "https://github.com/hasinhayder/tyro-checkpoint/tree/v1.0.0"
+            },
+            "time": "2026-02-01T07:00:00+00:00"
         },
         {
             "name": "laravel/framework",

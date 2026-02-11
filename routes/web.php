@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\FileUploadController;
 
 
 
@@ -46,3 +47,6 @@ Route::post('/test-submit', function(Request $request) {
          'data' => $request->only('name', 'email')
     ]);
 });
+
+Route::get('/upload', [FileUploadController::class, 'index'])->name('upload');
+Route::post('/upload', [FileUploadController::class, 'store'])->name('upload.submit');

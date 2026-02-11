@@ -17,7 +17,7 @@
         </ul>
     </div>
 @endif -->
-<form action="/test-submit" method="post">
+<form action="/test-submit" method="post" enctype="multipart/form-data">
     @csrf
     <input type="text" name="name" placeholder="Enter your name" value="{{ old('name') }}">
     @error('name')

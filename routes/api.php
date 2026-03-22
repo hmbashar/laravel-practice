@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
-
+use App\Http\Controllers\GreetingsController;
 
 
 Route::get('/user', function (Request $request) {
@@ -11,3 +11,5 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/person', [DemoController::class, 'person']);
+
+Route::get('/hello', [GreetingsController::class, 'sayHello']);

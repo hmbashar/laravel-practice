@@ -5,8 +5,11 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\GreetingsController;
 
 
+
+Route::get('/hello', [GreetingsController::class, 'sayHello']);
 
 
 // Route::get('/', function () {

@@ -4,6 +4,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\GreetingsController;
+use App\Http\Controllers\ProductController;
+
+
+
+Route::get('/products', [ProductController::class, 'index']);
+
 
 
 Route::get('/user', function (Request $request) {

@@ -9,8 +9,19 @@ class ProductController extends Controller
 {
     function index(Request $request)
     {
-        $products = Product::all();
-        return response()->json($products);
+        // $products = Product::all();
+        // return response()->json($products);
+
+
+        $query = Product::query();
+
+        if($request->has('category')) {
+            $category = ucwords($request->query('category'));
+            $query->where('category', $category);
+        }
+        $product = $query->get();
+
+        return response()->json($product);
     }
 
     function store(Request $request)

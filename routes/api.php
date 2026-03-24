@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -16,6 +17,9 @@ Route::delete('/products/{product}', [ProductController::class, 'destroy']);
 // Route::patch('/products/{product}', [ProductController::class, 'update']);
 
 Route::match(['put', 'patch'], '/products/{product}', [ProductController::class, 'update']);
+
+
+Route::apiResource('/orders', OrderController::class);
 
 
 

@@ -12,4 +12,10 @@ class ProductController extends Controller
         $products = Product::all();
         return response()->json($products);
     }
+
+    function store(Request $request)
+    {
+        $product = Product::create($request->all());
+        return response()->json($product, 201);
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\GreetingsController;
+use App\Http\Controllers\ApiController;
 
 
 
@@ -53,3 +54,6 @@ Route::post('/test-submit', function(Request $request) {
 
 Route::get('/upload', [FileUploadController::class, 'index'])->name('upload');
 Route::post('/upload', [FileUploadController::class, 'store'])->name('upload.submit');
+
+
+Route::get('/dog-image', [ApiController::class, 'dogImage']);

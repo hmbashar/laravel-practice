@@ -26,11 +26,13 @@ Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('logout');
 
 
-Route::get('/admin', [Demo2Controller::class, 'adminDashbaord'])->middleware('auth:sanctum');
-Route::get('/editor', [Demo2Controller::class, 'editorContent'])->middleware('auth:sanctum');
-Route::get('/manager', [Demo2Controller::class, 'managerReports'])->middleware('auth:sanctum');
-Route::get('/customer', [Demo2Controller::class, 'customerDashboard'])->middleware('auth:sanctum');
-Route::get('/viewer', [Demo2Controller::class, 'viewerDashboard'])->middleware('auth:sanctum');
+Route::get('/admin', [Demo2Controller::class, 'adminDashbaord'])->middleware(['auth:sanctum', 'role:admin']);
+Route::get('/editor', [Demo2Controller::class, 'editorContent'])->middleware(['auth:sanctum', 'role:editor,admin']);
+Route::get('/manager', [Demo2Controller::class, 'managerReports'])->middleware(['auth:sanctum', 'role:manager,admin']);
+Route::get('/customer', [Demo2Controller::class, 'customerDashboard'])->middleware(['auth:sanctum', 'role:customer,admin']);
+Route::get('/viewer', [Demo2Controller::class, 'viewerDashboard'])->middleware(['auth:sanctum', 'role:viewer,admin']);
+
+
 
 
 

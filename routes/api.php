@@ -6,7 +6,24 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AuthController;
 
+
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', 
+    function () {
+        return response()->json([
+            'message' => 'Login route only post method is allowed',
+        ]);
+    }
+)->name('login');
+
+
+Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+
+
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('logout');
 
 
 Route::get('/products', [ProductController::class, 'index']);

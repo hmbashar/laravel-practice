@@ -7,7 +7,7 @@ use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\Demo2Controller;
 
 
 Route::post('/login', [AuthController::class, 'login']);
@@ -26,9 +26,11 @@ Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum')->name('logout');
 
 
-
-
-
+Route::get('/admin', [Demo2Controller::class, 'adminDashbaord'])->middleware('auth:sanctum');
+Route::get('/editor', [Demo2Controller::class, 'editorContent'])->middleware('auth:sanctum');
+Route::get('/manager', [Demo2Controller::class, 'managerReports'])->middleware('auth:sanctum');
+Route::get('/customer', [Demo2Controller::class, 'customerDashboard'])->middleware('auth:sanctum');
+Route::get('/viewer', [Demo2Controller::class, 'viewerDashboard'])->middleware('auth:sanctum');
 
 
 

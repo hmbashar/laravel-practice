@@ -53,5 +53,17 @@ class User extends Authenticatable
     function profile() {
         return $this->hasOne(Profile::class);
     }
+
+    public function roles() {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRole(string $roleSlug) {
+        return $this->roles()->where('slug', $roleSlug)->exists();
+    }
+
+    public function hasAnyRole(array $roleSlugs) {
+        return $this->roles()->whereIn('slug', $roleSlugs)->exists();
+    }
   
 }

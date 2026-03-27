@@ -15,6 +15,10 @@ class Demo2Controller extends Controller
     }
 
     public function editorContent(Request $request) {
+        $user = $request->user();
+        if(!$user->hasRole('Editor')) {
+            abort(403, "Unauthorized");
+        }
         return response()->json([            
             'message' => 'Editor Content: Welcome ' . $request->user()->name,
             'user' => $request->user(),

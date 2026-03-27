@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\ApiDemoController;
 
 
 
@@ -57,3 +58,32 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('upload.sub
 
 
 Route::get('/dog-image', [ApiController::class, 'dogImage']);
+
+
+
+
+
+
+Route::prefix('api-demo')->group(function () {
+    Route::get('/documentation', function () {
+        return view('api-demo.documentation');
+    })->name('api-demo.documentation');
+
+    Route::get('/', [ApiDemoController::class, 'index'])->name('api-demo.index');
+    Route::get('/random-user', [ApiDemoController::class, 'randomUser'])->name('api-demo.random-user');
+    Route::get('/random-dog', [ApiDemoController::class, 'randomDog'])->name('api-demo.random-dog');
+    Route::get('/random-joke', [ApiDemoController::class, 'randomJoke'])->name('api-demo.random-joke');
+    Route::get('/advice', [ApiDemoController::class, 'advice'])->name('api-demo.advice');
+    Route::get('/posts', [ApiDemoController::class, 'posts'])->name('api-demo.posts');
+    Route::get('/weather', [ApiDemoController::class, 'weather'])->name('api-demo.weather');
+    Route::post('/weather', [ApiDemoController::class, 'getWeather'])->name('api-demo.get-weather');
+    Route::get('/pokemon/{pokemon?}', [ApiDemoController::class, 'pokeApi'])->name('api-demo.pokemon');
+    Route::get('/exchange-rate', [ApiDemoController::class, 'exchangeRate'])->name('api-demo.exchange-rate');
+    Route::get('/xkcd/{num?}', [ApiDemoController::class, 'xkcd'])->name('api-demo.xkcd');
+    Route::get('/openweather', [ApiDemoController::class, 'openWeatherForm'])->name('api-demo.openweather');
+    Route::post('/openweather', [ApiDemoController::class, 'getOpenWeather'])->name('api-demo.get-openweather');
+    Route::get('/openweather/debug', [ApiDemoController::class, 'openWeatherDebug'])->name('api-demo.openweather-debug');
+    Route::post('/openweather/debug', [ApiDemoController::class, 'testOpenWeather'])->name('api-demo.test-openweather');
+    Route::get('/post-demo', [ApiDemoController::class, 'postDemoForm'])->name('api-demo.post-demo');
+    Route::post('/post-demo', [ApiDemoController::class, 'postDemoSubmit'])->name('api-demo.post-submit');
+});

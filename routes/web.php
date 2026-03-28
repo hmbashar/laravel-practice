@@ -8,6 +8,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ApiDemoController;
+use App\Http\Controllers\MailController;
 
 
 
@@ -58,6 +59,9 @@ Route::post('/upload', [FileUploadController::class, 'store'])->name('upload.sub
 
 
 Route::get('/dog-image', [ApiController::class, 'dogImage']);
+
+
+Route::get('/mail', [MailController::class, 'demo']);
 
 
 

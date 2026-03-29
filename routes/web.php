@@ -9,6 +9,7 @@ use App\Http\Controllers\GreetingsController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\ApiDemoController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\DemoEmailController;
 
 
 
@@ -63,6 +64,9 @@ Route::get('/dog-image', [ApiController::class, 'dogImage']);
 
 Route::get('/mail', [MailController::class, 'demo']);
 
+Route::get('/demoEmail', [DemoEmailController::class, 'demoEmail'])->name('demoEmail');
+Route::get('/queueRun', [DemoEmailController::class, 'queueRun'])->name('queueRun');
+Route::get('/queueFailedRun', [DemoEmailController::class, 'queueFailedRun'])->name('queueFailedRun');
 
 
 
